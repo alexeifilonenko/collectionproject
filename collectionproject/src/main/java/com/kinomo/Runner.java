@@ -18,14 +18,21 @@ public class Runner {
 
     public static void main(String[] args) throws IOException {
         DAO dao = DAOFactory.get(DAOKeys.JSON);
+        dao.getById(1);
+        dao.getById(4);
+        dao.getById(10);
+
 
 
         Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader("src/main/resources/user.json"));
-        List<User> userList = gson.fromJson(reader, new TypeToken<List<User>>(){}.getType());
-            for(User user : userList) {
-                System.out.println(user.getFirstName());
+        JsonReader reader = new JsonReader(new FileReader("src/main/resources/users.json"));
+        List<User> users = gson.fromJson(reader, new TypeToken<List<User>>(){}.getType());
+            for(User user : users) {
+                System.out.println(user.getId());
             }
+
+
+
 
         }
 
