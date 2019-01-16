@@ -11,7 +11,7 @@
     "firstName": "Bob",
     "lastName": "Bridge",
     "age": "25",
-    "city": "Moscow"
+    "city": "Minsk"
   }
 ,
   {
@@ -43,6 +43,6 @@
     "firstName": "Barak",
     "lastName": "Obama",
     "age": "55",
-    "city": "Las vegas"
+    "city": "NY"
   }
 ]

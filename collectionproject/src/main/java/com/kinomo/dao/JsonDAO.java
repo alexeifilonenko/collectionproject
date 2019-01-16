@@ -7,8 +7,7 @@ import com.kinomo.model.User;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class JsonDAO implements DAO {
 
@@ -45,11 +44,28 @@ public class JsonDAO implements DAO {
 
     @Override
     public List<User> getAll() {
+        for(User user : users) {
+            System.out.println(user.getFirstName() + " " + user.getLastName() + " " + user.getCity());
+        }
         return users;
     }
 
     @Override
     public Map<String, List<User>> getUnique() {
-        return null;
+        Map<String, List<User>> map = new HashMap<String, List<User>>();
+        HashSet<String> cities = new HashSet<>();
+
+        for(User user : users) {
+            String city = user.getCity();
+            List<User> userList = map.containsKey(city)? map.get(city): new ArrayList<>();
+            userList.add(user);
+            map.put(city, userList);
+
+        }
+
+
+
+
+        return map;
     }
 }

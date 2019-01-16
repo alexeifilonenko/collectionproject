@@ -20,9 +20,11 @@ public class Runner {
         DAO dao = DAOFactory.get(DAOKeys.JSON);
         dao.getById(1);
         dao.getById(4);
-        dao.getById(10);
-
-
+        System.out.println();
+        dao.getAll();
+        System.out.println();
+        System.out.println(dao.getUnique());
+        System.out.println();
 
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader("src/main/resources/users.json"));
