@@ -45,4 +45,12 @@
     "age": "55",
     "city": "NY"
   }
+,
+  {
+    "id": "7",
+    "firstName": "Barak",
+    "lastName": "Obama",
+    "age": "55",
+    "city": "Disney"
+  }
 ]

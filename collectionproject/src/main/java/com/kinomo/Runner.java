@@ -17,8 +17,9 @@ import java.util.List;
 public class Runner {
 
     public static void main(String[] args) throws IOException {
-        DAO dao = DAOFactory.get(DAOKeys.JSON);
-        dao.getById(1);
+        DAO dao = DAOFactory.get(DAOKeys.DATABASE);
+
+        /*dao.getById(1);
         dao.getById(4);
         System.out.println();
         dao.getAll();
@@ -31,7 +32,7 @@ public class Runner {
         List<User> users = gson.fromJson(reader, new TypeToken<List<User>>(){}.getType());
             for(User user : users) {
                 System.out.println(user.getId());
-            }
+            }*/
 
 
 

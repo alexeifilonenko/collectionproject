@@ -53,7 +53,7 @@ public class JsonDAO implements DAO {
     @Override
     public Map<String, List<User>> getUnique() {
         Map<String, List<User>> map = new HashMap<String, List<User>>();
-        HashSet<String> cities = new HashSet<>();
+        //HashSet<String> cities = new HashSet<>();
 
         for(User user : users) {
             String city = user.getCity();
@@ -61,11 +61,8 @@ public class JsonDAO implements DAO {
             userList.add(user);
             map.put(city, userList);
 
+
         }
-
-
-
-
-        return map;
+       return map;
     }
 }
