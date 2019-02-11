@@ -32,9 +32,9 @@ public class JsonDAO implements DAO {
     }
 
     @Override
-    public User getById(int id) {
+    public User getById(String id) {
         for(User user : users) {
-            if (id == user.getId()) {
+            if (id == ""/*user.getId()*/) {
                 System.out.println(user.getFirstName() + " " + user.getLastName());
                 return user;
             }
@@ -45,7 +45,7 @@ public class JsonDAO implements DAO {
     @Override
     public List<User> getAll() {
         for(User user : users) {
-            System.out.println(user.getFirstName() + " " + user.getLastName() + " " + user.getCity());
+            System.out.println(user.getFirstName() + " " + user.getLastName() + " "/* + user.getCity()*/);
         }
         return users;
     }
@@ -56,7 +56,7 @@ public class JsonDAO implements DAO {
         //HashSet<String> cities = new HashSet<>();
 
         for(User user : users) {
-            String city = user.getCity();
+            String city = "";//user.getCity();
             List<User> userList = map.containsKey(city)? map.get(city): new ArrayList<>();
             userList.add(user);
             map.put(city, userList);

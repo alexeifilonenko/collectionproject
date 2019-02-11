@@ -1,16 +1,11 @@
 package com.kinomo;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 import com.kinomo.dao.DAO;
 import com.kinomo.dao.DAOFactory;
 import com.kinomo.dao.DAOFactory.DAOKeys;
 import com.kinomo.model.User;
 
-import java.io.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -18,7 +13,13 @@ public class Runner {
 
     public static void main(String[] args) throws IOException {
         DAO dao = DAOFactory.get(DAOKeys.DATABASE);
+        System.out.println();
+        System.out.println(dao.getById("59049586c7efe1567cf17470"));
+        System.out.println();
+        List<User> users = dao.getAll();
+        users.forEach(user -> System.out.println(user.getFirstName() + " " + user.getLastName()));
 
+        // dao.getById("1");
         /*dao.getById(1);
         dao.getById(4);
         System.out.println();
@@ -35,14 +36,10 @@ public class Runner {
             }*/
 
 
-
-
-        }
-
-
-
-
     }
+
+
+}
 
 
 

@@ -11,7 +11,7 @@ public interface DAO {
     void initialize();
 
     //get specific User by id
-    User getById(int id);
+    User getById(String id);
 
     //get all users
     List<User> getAll();
