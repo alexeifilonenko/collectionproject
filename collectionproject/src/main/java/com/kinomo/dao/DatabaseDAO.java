@@ -4,18 +4,13 @@ import com.kinomo.model.User;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.apache.commons.collections4.IteratorUtils;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.mongodb.MongoClientSettings.getDefaultCodecRegistry;
 import static com.mongodb.client.model.Filters.eq;
@@ -59,10 +54,10 @@ public class DatabaseDAO implements DAO {
         MongoDatabase database = mongoClient.getDatabase("stage-platform");
         collection = database.getCollection("users", User.class);
 
-        /*User user1 = collection.find(eq("_id", "590081fd218b450c1e102cf0")).first();
+        //User user = collection.find(eq("_id", "590081fd218b450c1e102cf0")).first();
+        //User user = collection.find(eq("_id", id)).first();
 
-
-        System.out.println(user1.getFirstName() + " " + user1.getLastName());*/
+        //System.out.println(user1.getFirstName() + " " + user1.getLastName());
     }
 
     @Override
@@ -77,6 +72,15 @@ public class DatabaseDAO implements DAO {
 
     @Override
     public Map<String, List<User>> getUnique() {
-        return null;
+        Map<String, List<User>> map = new HashMap<>();
+        FindIterable<User> users = collection.find();
+
+        for (User user : users) {
+            String clientId = user.getClientId();
+            List<User> userList = map.containsKey(clientId) ? map.get(clientId) : new ArrayList<>();
+            userList.add(user);
+            map.put(clientId, userList);
+        }
+            return map;
+        }
     }
-}

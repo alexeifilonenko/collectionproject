@@ -5,6 +5,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String username;
+    private String clientId;
 
     public String get_id() {
         return _id;
@@ -38,12 +39,21 @@ public class User {
         this.username = username;
     }
 
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + _id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", clientId='" + clientId + '\'' +
                 '}';
     }
 }

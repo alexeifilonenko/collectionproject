@@ -7,17 +7,20 @@ import com.kinomo.model.User;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 
 public class Runner {
 
     public static void main(String[] args) throws IOException {
         DAO dao = DAOFactory.get(DAOKeys.DATABASE);
-        System.out.println();
+        /*System.out.println();
         System.out.println(dao.getById("59049586c7efe1567cf17470"));
-        System.out.println();
-        List<User> users = dao.getAll();
-        users.forEach(user -> System.out.println(user.getFirstName() + " " + user.getLastName()));
+        System.out.println();*/
+        //List<User> users = dao.getAll();
+        //users.forEach(user -> System.out.println(user.getFirstName() + " " + user.getLastName() + " " + user.getUsername()));
+
+        System.out.println(dao.getUnique());
 
         // dao.getById("1");
         /*dao.getById(1);
